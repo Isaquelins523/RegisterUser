@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Table(name="registered_user")
-@Entity(name="User")
+@Entity(name="registered_user")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -23,5 +23,10 @@ public class User {
 
     private Integer age;
 
+    public User(RequestUser requestUser){
+        this.name = requestUser.name();
+        this.email = requestUser.email();
+        this.age = (Integer) requestUser.age();
+    }
 
 }
